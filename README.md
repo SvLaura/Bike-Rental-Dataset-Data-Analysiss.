@@ -1,4 +1,4 @@
-# Bike-Rental-Dataset-Data-Analysiss.
+# Bike-Rental-Dataset-Data-Analysis.
 The analysis investigates data from Bike rental website to find answers on questions bellow using Python and its libraries. Data are available data for public use: https://www.lyft.com/bikes/bay-wheels/system-data. 
 Analyse is divided into 2 parts:
 In the first part - an exploratory data analysis on a dataset is provided.

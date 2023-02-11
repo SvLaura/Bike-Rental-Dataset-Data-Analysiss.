@@ -14,17 +14,21 @@ url = 'https://s3.amazonaws.com/baywheels-data/index.html'
 folder_name = 'data'
 
 
-def data_to_df():
-    '''download files tolocal folder 'data' and
+def data_to_df(source_type = 'download'):
+    '''if source_type='download' - download files to local folder 'data' 
     read all *.scv files from the 'folders' to dataframe 'df'
+    or read all data from local files
     '''
     df = pd.DataFrame()
     page = requests.get(url)
-    folders = ['data/2017', 'data/2018', 'data/2019', 'data/2020', 'data/2021', 'data/2022']#folders = download_data() tmp
+    if source_type == 'download':
+        folders = download_data()
+    else:
+        folders = ['data/2017', 'data/2018', 'data/2019', 'data/2020', 'data/2021', 'data/2022']
     print('------>end download data')
     if page.status_code == 200:
         dirpath = os.getcwd()
-        for i in range(len(folders)-1):
+        for i in range(len(folders)):
             path = os.getcwd() + '/' + folders[i] + '/*.csv'
             # to dataframe:
             df2 = pd.concat((pd.read_csv(f, dtype='unicode', index_col=False, low_memory=False)
